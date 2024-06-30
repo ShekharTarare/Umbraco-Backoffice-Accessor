@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inject InstallingUmbracoDemo.IBackofficeUserAccessor BackofficeUserAccessor
+@{
+    Layout = null;
+}
+
+
+@if (BackofficeUserAccessor.BackofficeUser.IsAuthenticated)
+{
+    <h1>Welcome, authenticated user!</h1>
+    <!-- Your protected content goes here -->
+}
+else
+{
+    <h1>You are not authorized to view this content.</h1>
+}
